@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+  int n,ex;
+  cin>>n>>ex;
+  int ar[n];
+  for(int i=0;i<n;i++)
+    cin>>ar[i];
+  bool res[n];
+    int max=*max_element(ar,ar+n);
+    for(int i=0;i<n;i++)
+    {
+      if(ar[i]+ex >=max)
+        res[i]=true;
+    else
+       res[i]=false;}
+
+    for(int i=0;i<n;i++)
+      cout<<res[i]<<" ";
+  }
