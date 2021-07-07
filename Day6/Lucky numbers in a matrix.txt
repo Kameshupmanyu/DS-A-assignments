@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int check(int c,vector<vector<int>>& mat)
+    {
+        int max=INT_MIN;
+        for(int i=0;i<mat.size();i++)
+        {
+            if(mat[i][c]>max)
+                max=mat[i][c];
+        }
+        return max;
+    }
+    vector<int> luckyNumbers (vector<vector<int>>& mat) {
+        int m=mat.size();
+        int n=mat[0].size();
+        vector<int> v;
+        for(int i=0;i<m;i++)
+        {
+            int min=INT_MAX,col;
+            for(int j=0;j<n;j++)
+            {
+                if(mat[i][j]<min){
+                    min=mat[i][j];
+                    col=j;}
+            }
+            if(check(col,mat)==min)
+            { v.push_back(min);
+              break;}
+        }
+        return v;
+    }
+};
