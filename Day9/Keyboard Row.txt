@@ -1,0 +1,34 @@
+class Solution {
+public:
+    vector<string> findWords(vector<string>& words) {
+        string s1="qwertyyuiop";
+        string s2="asdfghjkl";
+        string s3="zxcvbnm";
+        unordered_map<char,int> map;
+        vector<string> res;
+        for(int i=0;i<s1.length();i++)
+            map[s1[i]]=1;
+        for(int i=0;i<s1.length();i++)
+            map[s2[i]]=2;
+        for(int i=0;i<s3.length();i++)
+            map[s3[i]]=3;
+        for(int i=0;i<words.size();i++)
+        {
+            string s=words[i];
+              bool f=0;
+              int k=map[tolower(s[0])];
+            
+            for(int j=1;j<s.length();j++)
+            {
+                if(map[tolower(s[j])]!=k)
+                {
+                    f=1;
+                    break;
+                }
+            }
+            if(f==0)
+                res.push_back(s);
+        }
+        return res;
+    }
+};
